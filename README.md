@@ -128,7 +128,7 @@ AlgorandQRCodeBadge(
 
 ## In Summary
 
-If you enjoy using this library, you may choose to help test it by sending a tip (in Algos, of course!) to:
+Hopefully you are inspired to build interesting applications on Algorand! If you enjoy using this free library, you may choose to help test it by sending a tip (in Algos, of course!) to:
 
 <img src="/images/algo-screenshot-donation.png" alt="algorand://4AOJ5QITUBWZGO4K5AF77H5GED5A4QDBB6DOQGI63QE2GU6KD2XNETBBJE" width="100"/>
 
