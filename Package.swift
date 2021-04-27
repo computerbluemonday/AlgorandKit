@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
   name: "AlgorandKit",
   platforms: [
-    .iOS(.v13),
+    .iOS(.v13)
   ],
   products: [
     .library(
