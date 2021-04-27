@@ -1,8 +1,8 @@
 # AlgorandKit
 
-A collection of Swift utilities which help enable lightweight interaction with the Algorand blockchain.
+A collection of Swift utilities to enable lightweight interaction with the Algorand blockchain.
 
-Embed this library to easily create Algorand URIs and stylized QR codes.
+Embed this library to easily create Algorand Payment Prompt URIs and stylized QR codes.
 
 ![Swift 5](https://img.shields.io/badge/Swift-5-blue.svg)
 ![Swift Package Manager](https://img.shields.io/badge/support-Swift_Package_Manager-orange.svg)
