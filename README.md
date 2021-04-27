@@ -8,7 +8,7 @@ Embed this library to easily create Algorand URIs and stylized QR codes.
 ![Swift Package Manager](https://img.shields.io/badge/support-Swift_Package_Manager-orange.svg)
 [![MIT license](http://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/computerbluemonday/AlgorandKit/raw/master/LICENSE)
 
-<img src="/images/AlgorandKit_screenshot_device.png" alt="Algorand Screenshot" width="791"/>
+<img src="/images/AlgorandKit_screenshot_device.png" alt="Algorand Screenshot" width="300"/>
 
 ## Requirements
 * Xcode 12.0 or higher.
@@ -27,7 +27,7 @@ https://github.com/computerbluemonday/AlgorandKit
 Or, manually add the dependency to your Package.swift:
 
 ```ogdl
-.package(url: https://github.com/computerbluemonday/AlgorandKit, from: "0.9.0")
+.package(url: https://github.com/computerbluemonday/AlgorandKit, from: "1.0.0")
 ```
 ## AlgorandURI
 
@@ -90,9 +90,9 @@ if let url = algoURI.url() {
 Utilities for generating raw and stylized Algorand QR codes from AlgorandURI instances:
 
 - `AlgorandURI (extension)`
--- Generate a raw QR code image from an AlgorandURI, based on UIKit
+-- Generate a raw QR code UIImage from an AlgorandURI
 - `AlgorandQRCodeBadge`
--- Create a scaled, (optionally) stylized and branded Algorand QR code badge in SwiftUI
+-- Create a scalable, (optionally) stylized and branded Algorand QR code badge in SwiftUI
 
 Although not explicitly provided as part of this library, see AlgorandQRCodeTests for examples of detecting
 Algorand QR Codes using Apple's Vision framework.
@@ -106,10 +106,10 @@ let algoURI = AlgorandURI(
   assetAmount: .algo(microAlgos: 100),
   note: .readonly(xnote: "Transporter Insurance"))
 
-// Generate a raw QR code for this transaction URI
+// Generate a raw QR code UIImage for this transaction URI
 let qrCodeImage = algoURI.generateQRCode()
 
-// Instantiate a fun, stylized SwiftUI QR code badge
+// Instantiate a stylized SwiftUI QR code badge
 AlgorandQRCodeBadge(
   uri:AlgorandURI(receiver: AlgorandURI.Receiver(address: "4AOJ5QITUBWZGO4K5AF77H5GED5A4QDBB6DOQGI63QE2GU6KD2XNETBBJE", label: nil), assetAmount: nil, note: nil),
   qrCodeColor: UIColor.systemTeal,
@@ -121,9 +121,9 @@ AlgorandQRCodeBadge(
 ### Sample Screenshots
 
 <div>
-<img src="/images/algo-qr-screenshot-1.png" alt="Sample Algorand QR Code 1" width="300"/>
-<img src="/images/algo-qr-screenshot-2.png" alt="Sample Algorand QR Code 2" width="300"/>
-<img src="/images/algo-qr-screenshot-3.png" alt="Sample Algorand QR Code 3" width="300"/>
+<img src="/images/algo-qr-screenshot-1.png" alt="Sample Algorand QR Code 1" width="200"/>
+<img src="/images/algo-qr-screenshot-2.png" alt="Sample Algorand QR Code 2" width="200"/>
+<img src="/images/algo-qr-screenshot-3.png" alt="Sample Algorand QR Code 3" width="200"/>
 </div>
 
 ## In Summary
