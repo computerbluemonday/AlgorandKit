@@ -130,8 +130,6 @@ AlgorandQRCodeBadge(
 
 If you enjoy using this library, you may choose to help test it by sending a tip (in Algos, of course!) to:
 
-<a href="algorand://4AOJ5QITUBWZGO4K5AF77H5GED5A4QDBB6DOQGI63QE2GU6KD2XNETBBJE">
 <img src="/images/algo-screenshot-donation.png" alt="algorand://4AOJ5QITUBWZGO4K5AF77H5GED5A4QDBB6DOQGI63QE2GU6KD2XNETBBJE" width="100"/>
-</a>
 
 Cheers!
