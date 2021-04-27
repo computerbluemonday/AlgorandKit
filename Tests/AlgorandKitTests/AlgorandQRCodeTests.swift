@@ -8,7 +8,7 @@
 import XCTest
 import SwiftUI
 import Vision
-@testable import AlgorandKit
+import AlgorandKit
 
 // Helpers for snapshot testing
 extension UIView {

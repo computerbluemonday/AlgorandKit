@@ -15,24 +15,31 @@ import Foundation
 ///
 public struct AlgorandURI {
 
-  let uriScheme = "algorand"
+  private let uriScheme = "algorand"
 
   /// Wrapper around the transaction's receiver.
-  struct Receiver {
+  public struct Receiver {
     ///
     /// Receiver's Algorand address.
     ///
     /// AlgorandURI treats addresses opaquely, and by design does not validate them.
     /// Addresses are encoded and passed through to the host wallet for validation.
-    let address: String
+    public let address: String
    
     ///
     /// Optional label for this address (e.g. name of receiver)
-    let label: String?
+    public let label: String?
+
+    ///
+    /// Memberwise initializer
+    public init(address: String, label: String?) {
+      self.address = address
+      self.label = label
+    }
   }
   
   /// Receiver for the transaction represented by this AlgorandURI
-  let receiver: Receiver
+  public let receiver: Receiver
   
   /// Wrapper around the transaction's asset.
   ///
@@ -40,7 +47,7 @@ public struct AlgorandURI {
   /// and to help avoid accidental misuse.
   ///
   /// See assetAmount parameter for more information on asset units.
-  enum AssetAmount {
+  public enum AssetAmount {
     case algo(microAlgos: UInt)
     case ASA(assetID: UInt, amount: UInt)
   }
@@ -54,7 +61,7 @@ public struct AlgorandURI {
   ///
   /// e.g. for 100 Algos, the amount needs to be 100000000, for 54.1354 Algos the
   /// amount needs to be 54135400.
-  let assetAmount: AssetAmount?
+  public let assetAmount: AssetAmount?
   
   /// Wrapper around the transaction note.
   ///
@@ -62,14 +69,21 @@ public struct AlgorandURI {
   ///                   user when displayed to users.
   /// editable (note): A URL-encoded default notes field value that the the user interface
   ///                  may optionally make editable by the user.
-  enum Note {
+  public enum Note {
     case readonly(xnote: String)
     case editable(note: String)
   }
 
   /// Optional transaction note for this AlgorandURI, which may be specified to be either
   /// readonly or editable by the user.
-  let note: Note?
+  public let note: Note?
+  
+  /// Memberwise initializer
+  public init(receiver: Receiver, assetAmount: AssetAmount?, note: Note?) {
+    self.receiver = receiver
+    self.assetAmount = assetAmount
+    self.note = note
+  }
 
   /// URL for this AlgorandURI
   ///

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension UIColor {
+private extension UIColor {
   var inverted: UIColor {
     var alpha: CGFloat = 0.0
     var r: CGFloat = 0.0
@@ -28,19 +28,28 @@ extension UIColor {
 ///
 ///
 public struct AlgorandQRCodeBadge: View {
-  
+
   public enum FrameConfiguration {
     case unframed
     case framed(color: UIColor)
   }
 
-  let uri: AlgorandURI
-  let qrCodeColor: UIColor
-  let frameConfiguration: FrameConfiguration
-  let includeLogo: Bool
+  public let uri: AlgorandURI
+  public let qrCodeColor: UIColor
+  public let frameConfiguration: FrameConfiguration
+  public let includeLogo: Bool
   
   @State private var qrCode: Image?
-    
+
+  ///
+  /// Memberwise initializer
+  public init(uri: AlgorandURI, qrCodeColor: UIColor, frameConfiguration: AlgorandQRCodeBadge.FrameConfiguration, includeLogo: Bool) {
+    self.uri = uri
+    self.qrCodeColor = qrCodeColor
+    self.frameConfiguration = frameConfiguration
+    self.includeLogo = includeLogo
+  }
+  
   public var body: some View {
     // Frame
     ZStack {

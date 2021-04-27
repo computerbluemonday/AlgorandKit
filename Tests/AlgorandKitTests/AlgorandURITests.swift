@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import AlgorandKit
+import AlgorandKit
 
 final class AlgorandURITests: XCTestCase {
   
