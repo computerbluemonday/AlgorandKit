@@ -8,6 +8,8 @@ Embed this library to easily create Algorand URIs and stylized QR codes.
 ![Swift Package Manager](https://img.shields.io/badge/support-Swift_Package_Manager-orange.svg)
 [![MIT license](http://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/computerbluemonday/AlgorandKit/raw/master/LICENSE)
 
+<img src="/images/AlgorandKit_screenshot_device.png" alt="Algorand Screenshot" width="791"/>
+
 ## Requirements
 * Xcode 12.0 or higher.
 * iOS 13.0 or higher.
