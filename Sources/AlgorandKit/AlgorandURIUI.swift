@@ -26,6 +26,7 @@ extension AlgorandURI {
       let data = url.absoluteString.data(using: String.Encoding.ascii)
       if let filter = CIFilter(name: "CIQRCodeGenerator") {
         filter.setValue(data, forKey: "inputMessage")
+        filter.setValue("Q", forKey: "inputCorrectionLevel")
         if let outputImage = filter.outputImage,
            let cgImage = CIContext().createCGImage(outputImage,
                                                    from: outputImage.extent) {

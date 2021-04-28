@@ -126,6 +126,12 @@ struct AlgorandQRCodeBadge_Previews: PreviewProvider {
       AlgorandQRCodeBadge(
         uri:AlgorandURI(receiver: AlgorandURI.Receiver(address: "4AOJ5QITUBWZGO4K5AF77H5GED5A4QDBB6DOQGI63QE2GU6KD2XNETBBJE", label: nil), assetAmount: nil, note: nil),
         qrCodeColor: UIColor.black,
+        frameConfiguration: .unframed,
+        includeLogo: true)
+      
+      AlgorandQRCodeBadge(
+        uri:AlgorandURI(receiver: AlgorandURI.Receiver(address: "4AOJ5QITUBWZGO4K5AF77H5GED5A4QDBB6DOQGI63QE2GU6KD2XNETBBJE", label: nil), assetAmount: nil, note: nil),
+        qrCodeColor: UIColor.black,
         frameConfiguration: .framed(color: UIColor.black),
         includeLogo: false)
       
