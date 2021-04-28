@@ -27,7 +27,7 @@ https://github.com/computerbluemonday/AlgorandKit
 Or, manually add the dependency to your Package.swift:
 
 ```ogdl
-.package(url: https://github.com/computerbluemonday/AlgorandKit, from: "1.0.0")
+.package(url: https://github.com/computerbluemonday/AlgorandKit, from: "1.0.1")
 ```
 ## AlgorandURI
 
