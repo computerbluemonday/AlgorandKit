@@ -92,17 +92,27 @@ extension AlgorandURI {
 private class AlgorandURIActivityItem : NSObject, UIActivityItemSource {
   
   let uri: AlgorandURI
+  let title = NSLocalizedString("Algorand Transaction", comment: "Title for generic Algorand transaction URI when sharing")
+  let image = UIImage(named: "algorand_logo_mark_black", in: .module, with: nil)
   
   init(uri: AlgorandURI) {
     self.uri = uri
   }
   
   func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
-      return uri.url() as Any
+    return uri.url() as Any
   }
 
   func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
     return uri.url()
+  }
+
+  func activityViewController(_ activityViewController: UIActivityViewController, subjectForActivityType: UIActivity.ActivityType?) -> String {
+    return title
+  }
+  
+  func activityViewController(_ activityViewController: UIActivityViewController, thumbnailImageForActivityType: UIActivity.ActivityType?, suggestedSize: CGSize) -> UIImage? {
+    return image
   }
 
   func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
@@ -113,8 +123,9 @@ private class AlgorandURIActivityItem : NSObject, UIActivityItemSource {
     let metadata = LPLinkMetadata()
     metadata.originalURL = url
     metadata.url = url
-    metadata.title = NSLocalizedString("Algorand Transaction", comment: "Title for generic Algorand transaction URI when sharing")
-    if let image = UIImage(named: "algorand_logo_mark_black", in: .module, with: nil) {
+    metadata.title = title
+    if let image = image {
+      metadata.iconProvider = NSItemProvider(object: image)
       metadata.imageProvider = NSItemProvider(object: image)
     }
     return metadata

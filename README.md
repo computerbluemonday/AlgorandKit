@@ -2,7 +2,7 @@
 
 A Swift library to enable lightweight interaction with the Algorand blockchain.
 
-Embed this library to easily create Algorand Payment Prompt URIs and stylized QR codes.
+Embed this library to easily create and share Algorand Payment Prompt URIs and stylized QR codes.
 
 ![Swift 5](https://img.shields.io/badge/Swift-5-blue.svg)
 ![Swift Package Manager](https://img.shields.io/badge/support-Swift_Package_Manager-orange.svg)
@@ -27,7 +27,7 @@ https://github.com/computerbluemonday/AlgorandKit
 Or, manually add the dependency to your Package.swift:
 
 ```ogdl
-.package(url: https://github.com/computerbluemonday/AlgorandKit, from: "1.0.1")
+.package(url: https://github.com/computerbluemonday/AlgorandKit, from: "1.1.0")
 ```
 ## AlgorandURI
 
@@ -125,6 +125,41 @@ AlgorandQRCodeBadge(
 <img src="/images/algo-qr-screenshot-2.png" alt="Sample Algorand QR Code 2" width="200"/>
 <img src="/images/algo-qr-screenshot-3.png" alt="Sample Algorand QR Code 3" width="200"/>
 </div>
+
+## UIActivityViewController / AirDrop
+
+Support for sharing AlgorandURIs with other devices or services via UIActivityViewController.
+Defaults to a set of sharing destinations including AirDrop, SMS, Mail, Copy/Paste; configurable to other sharing destinations by the caller.
+
+### Usage Examples
+
+```
+// Create an AlgorandURI to receiver Data for 400 microAlgos.
+let algoURI = AlgorandURI(
+  receiver: AlgorandURI.Receiver(address: "4AOJ5QITUBWZGO4K5AF77H5GED5A4QDBB6DOQGI63QE2GU6KD2XNETBBJE", label: "Data"),
+  assetAmount: .algo(microAlgos: 400),
+  note: .readonly(xnote: "Cat food."))
+
+// Present UIActivityViewController to share AlgorandURI via AirDrop, SMS, etc. (SwiftUI)
+if let av = algoURI.activityViewController(excludedActivityTypes: nil) {
+  UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
+}
+
+```
+
+### Sample Screenshots
+
+<div>
+<img src="/images/algo-airdrop-algos.png" alt="Sample AlgorandURI AirDrop" width="200"/>
+<img src="/images/algo-share-sheet.png" alt="Sample AlgorandURI AirDrop Destinations" width="200"/>
+<img src="/images/algo-receive-airdrop.png" alt="Sample Receive AirDrop" width="200"/>
+</div>
+
+## AlgoSampleApp
+
+AlgoSampleApp is a standalone iOS Application project which demonstrates importing AlgorandKit, and specifically demos AlgorandURI's UIActivityViewController / AirDrop support. This can also serve as a test harness for exploring other AlgorandKit functionality.
+
+To build, simply open AlgoSampleApp.xcodeproj included in the AlgoSampleApp directory.
 
 ## In Summary
 
