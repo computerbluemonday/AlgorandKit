@@ -6,10 +6,12 @@
       "scale" : "1x"
     },
     {
+      "filename" : "algorand_logo_mark_black@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "algorand_logo_mark_black@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

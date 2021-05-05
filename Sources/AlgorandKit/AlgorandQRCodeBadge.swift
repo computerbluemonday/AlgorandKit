@@ -94,12 +94,12 @@ public struct AlgorandQRCodeBadge: View {
               .renderingMode(.template)
               .foregroundColor(.white)
               .aspectRatio(contentMode: .fit)
-              .frame(width: geo.size.width / 1.5, height: geo.size.height / 1.5)
+              .frame(width: geo.size.width / 3.7, height: geo.size.height / 3.7)
               .position(x: geo.frame(in: .local).midX - geo.size.width / 150.0, y: geo.frame(in: .local).midY - geo.size.height / 150.0)
             Image("algorand_logo_mark_black", bundle: .module)
               .resizable()
               .aspectRatio(contentMode: .fit)
-              .frame(width: geo.size.width / 2.0, height: geo.size.height / 2.0)
+              .frame(width: geo.size.width / 5.0, height: geo.size.height / 5.0)
               .position(x: geo.frame(in: .local).midX, y: geo.frame(in: .local).midY)
           }
         }

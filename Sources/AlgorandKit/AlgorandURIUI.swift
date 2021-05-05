@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import LinkPresentation
 import UIKit
 
 
@@ -46,5 +47,76 @@ extension AlgorandURI {
     }
     return uiImage
   }
+  
+  /// Create and return a UIActivityViewController for this AlgorandURI.
+  ///
+  /// Present this view controller to a user to allow them to share this
+  /// AlgorandURI as a URL to other devices.
+  ///
+  /// Parameters:
+  ///
+  ///   - excludedActivityTypes: Optional set of excluded UIActivity.ActivityTypes to exclude
+  ///     from the UIActivityViewController. If nil, a default set for AlgorandURI will be excluded.
+  ///     Pass an empty array to include all possible activities.
+  ///
+  public func activityViewController(excludedActivityTypes: [UIActivity.ActivityType]?) -> UIActivityViewController? {
+    
+    let items: [Any] = [AlgorandURIActivityItem(uri: self)]
+    
+    let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
+    activityVC.excludedActivityTypes = excludedActivityTypes ??
+      [.addToReadingList,
+       .assignToContact,
+       .markupAsPDF,
+       .openInIBooks,
+       .postToFacebook,
+       .postToFlickr,
+       .postToTwitter,
+       .postToTencentWeibo,
+       .postToWeibo,
+       .saveToCameraRoll,
+       .print,
+       UIActivity.ActivityType(rawValue: "com.apple.reminders.sharingextension"),
+       UIActivity.ActivityType(rawValue: "com.apple.mobilenotes.sharingextension")]
+    
+    return activityVC
+  }
 
+}
+
+/// UIActivityItemSource to wrap an AlgorandURI
+///
+/// Provides link metadata to UIActivityViewController,
+/// allowing it to display thumbnail image and contextual text.
+///
+private class AlgorandURIActivityItem : NSObject, UIActivityItemSource {
+  
+  let uri: AlgorandURI
+  
+  init(uri: AlgorandURI) {
+    self.uri = uri
+  }
+  
+  func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+      return uri.url() as Any
+  }
+
+  func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+    return uri.url()
+  }
+
+  func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
+    guard let url = uri.url() else {
+      return nil
+    }
+    
+    let metadata = LPLinkMetadata()
+    metadata.originalURL = url
+    metadata.url = url
+    metadata.title = NSLocalizedString("Algorand Transaction", comment: "Title for generic Algorand transaction URI when sharing")
+    if let image = UIImage(named: "algorand_logo_mark_black", in: .module, with: nil) {
+      metadata.imageProvider = NSItemProvider(object: image)
+    }
+    return metadata
+  }
 }
