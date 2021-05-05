@@ -1,6 +1,6 @@
 # AlgorandKit
 
-A collection of Swift utilities to enable lightweight interaction with the Algorand blockchain.
+A Swift library to enable lightweight interaction with the Algorand blockchain.
 
 Embed this library to easily create Algorand Payment Prompt URIs and stylized QR codes.
 
@@ -27,7 +27,7 @@ https://github.com/computerbluemonday/AlgorandKit
 Or, manually add the dependency to your Package.swift:
 
 ```ogdl
-.package(url: https://github.com/computerbluemonday/AlgorandKit, from: "1.0.0")
+.package(url: https://github.com/computerbluemonday/AlgorandKit, from: "1.0.1")
 ```
 ## AlgorandURI
 
